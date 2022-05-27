@@ -7,7 +7,7 @@ const firestore = firebase.firestore();
 const addUsers = async (req, res, next) => {
     try {
         const data = req.body;
-        await firestore.collection('users').doc(req.body.uid).set(data);
+        await firestore.collection('User').doc(req.body.name).set(data);
         res.send('Record saved successfuly');
     } catch (error) {
         res.status(400).send(error.message);
@@ -27,9 +27,11 @@ const addcompagnie = async (req, res, next) => {
 
 const getuser = async (req, res, next) => {
     try {
-        console.log(req.params.id);
-        const id = req.params.id;
-        const student = await firestore.collection('users').doc(id);
+        
+        const id = req.params.name;
+        console.log(id);
+        const student = await firestore.collection('User').doc(id);
+       
         const data = await student.get();
         if(!data.exists) {
             res.status(404).send('Student with the given ID not found');
@@ -41,9 +43,12 @@ const getuser = async (req, res, next) => {
     }
 }
 
+
+
 const getAllusers = async (req, res, next) => {
     try {
-        const students = await firestore.collection('users');
+        const students = await firestore.collection('User');
+        
         const data = await students.get();
         const studentsArray = [];
         if(data.empty) {
@@ -65,6 +70,7 @@ const getAllusers = async (req, res, next) => {
         res.status(400).send(error.message);
     }
 }
+
 module.exports = {
     addUsers,
     getuser,
