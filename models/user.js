@@ -5,8 +5,7 @@ class Users {
             this.mail = mail;
             this.password = password;
             this.role = role;
-           
-    }
+        }
 }
 
 module.exports = Users;
