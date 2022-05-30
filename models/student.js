@@ -23,4 +23,4 @@ class Sinistre {
     }
 }
 
-module.exports = Sinistre;
+export default Sinistre;
