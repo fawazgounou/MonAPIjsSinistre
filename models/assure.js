@@ -17,5 +17,4 @@ class Assure {
           
     }
 }
-
-export default Assure;
+module.exports= Assure;

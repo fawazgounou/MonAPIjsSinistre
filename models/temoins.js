@@ -5,11 +5,11 @@ class Temoins {
        Telephone, ) {
          this.id = id;
             this.nom = nom;
-            this.prenomt = prenomt;
+            this.prenom = prenom;
             this.Adresse = Adresse;
             this.Telephone = Telephone;
            
                }
 }
 
-export default Temoins;
+module.exports= Temoins;

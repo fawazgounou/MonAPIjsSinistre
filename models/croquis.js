@@ -8,5 +8,4 @@ class Croquis {
          
     }
 }
-
-export default Croquis;
+module.exports= Croquis;

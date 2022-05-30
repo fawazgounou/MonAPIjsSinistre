@@ -12,4 +12,4 @@ class Circonstance {
     }
 }
 
-export default Circonstance;
+module.exports= Circonstance;

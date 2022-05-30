@@ -28,5 +28,4 @@ class Conducteur {
         
     }
 }
-
-export default Conducteur;
+module.exports= Conducteur;

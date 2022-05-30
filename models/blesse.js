@@ -23,4 +23,4 @@ class Blesse {
     }
 }
 
-export default Blesse;
+module.exports= Blesse;

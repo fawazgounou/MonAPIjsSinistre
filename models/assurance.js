@@ -29,4 +29,4 @@ class Assurance {
     }
 }
 
-export default Assurance;
+module.exports= Assurance;

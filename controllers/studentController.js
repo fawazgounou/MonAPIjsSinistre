@@ -31,20 +31,7 @@ const getAllStudents = async (req, res, next) => {
                     doc.data().datesinistre,
                     doc.data().heureSinistre,
                     doc.data().lieuSinistre,
-                    doc.data().blesse,
-                    doc.data().degats,
-                    doc.data().id_vehiculeA,
-                    doc.data().id_vehiculeB,
-                    doc.data().id_AssuranceA,
-                    doc.data().id_AssuranceB,
-                    doc.data().id_assuréA,
-                    doc.data().id_assuréB,
-                    doc.data().id_CirconstanceA,
-                    doc.data().id_CirconstanceB,
-                    doc.data().id_conducteurA,
-                    doc.data().id_conducteurB,
-                    doc.data().id_observationA,
-                    doc.data().id_observationB,
+          
                 );
                 studentsArray.push(sinistre);
             });

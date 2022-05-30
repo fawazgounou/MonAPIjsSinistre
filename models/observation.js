@@ -9,4 +9,4 @@ class Observation {
     }
 }
 
-export default Observation;
+module.exports= Observation;

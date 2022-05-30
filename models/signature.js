@@ -10,4 +10,4 @@ class Signature {
     }
 }
 
-export default Signature;
+module.exports=Signature;
