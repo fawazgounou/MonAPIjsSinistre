@@ -1,5 +1,7 @@
 class Sinistre {
-    constructor(Localisation,
+    constructor(
+      id,
+      Localisation,
     date_Sinistre,
     Heure_Sinistre,
     Lieu,
@@ -19,10 +21,10 @@ class Sinistre {
     Centre_HospitalierB,
     Nature_GravitéB,
     MarqueV, Numero_immatriculationV, Pays_immatriculationV,
-    nomAS,
-    prenomAS,
+    NomAS,
+    PrenomAS,
    AdresseAS,
-   TéléphoneASS,
+   TéléphoneAS,
    Code_PostalAS,
    EmailAS,
    NomA,
@@ -56,7 +58,7 @@ class Sinistre {
 
      MarqueB, Numero_immatriculationB, Pays_immatriculationB,
     nomASB,
-    prenomASB,
+    PrenomASB,
    AdresseASB,
    TéléphoneASSB,
    Code_PostalASB,
@@ -95,6 +97,7 @@ class Sinistre {
 
 
      ) {
+      this.id = id;
             this.Localisation = Localisation;
             this.date_Sinistre = date_Sinistre;
             this.Heure_Sinistre = Heure_Sinistre;
@@ -117,10 +120,10 @@ class Sinistre {
            this.MarqueV = MarqueV;
            this.Numero_immatriculationV = Numero_immatriculationV;
            this.Pays_immatriculationV = Pays_immatriculationV;
-           this.nomAS = nomAS;
-           this.prenomAS =prenomAS;
+           this.NomAS = NomAS;
+           this.PrenomAS =PrenomAS;
            this.AdresseAS =AdresseAS;
-           this.TéléphoneASS =TéléphoneASS;
+           this.TéléphoneAS =TéléphoneAS;
            this. Code_PostalAS =Code_PostalAS;
             this.EmailAS =EmailAS;
             this.NomA =NomA;
@@ -157,8 +160,8 @@ class Sinistre {
            this.MarqueB = MarqueB;
            this.Numero_immatriculationB = Numero_immatriculationB;
            this.Pays_immatriculationB = Pays_immatriculationB;
-           this.nomASB = nomASB;
-           this.prenomASB =prenomASB;
+           this.NomASB = NomASB;
+           this.PrenomASB =PrenomASB;
            this.AdresseASB =AdresseASB;
            this.TéléphoneASSB =TéléphoneASSB;
            this. Code_PostalASB =Code_PostalASB;
@@ -167,7 +170,7 @@ class Sinistre {
             this.num_contratB=num_contratB;
             this.num_carte_verteB=num_carte_verteB;
            this.duB  =duB;
-           this.auB =au;
+           this.auB =auB;
            this.agenceB =agenceB;
            this.nom_agenceB =nom_agenceB;
            this.adresseB =adresseB;
@@ -176,7 +179,6 @@ class Sinistre {
            this.emailB =emailB;
            this.prise_enchargeB =prise_enchargeB;
            this.CirconstanceCB = CirconstanceCB;
-
            this.NomCB =NomCB;
             this.PrenomCB=PrenomCB;
             this.date_naissanceCB  =date_naissanceCB;

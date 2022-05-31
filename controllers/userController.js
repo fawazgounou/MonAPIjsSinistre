@@ -59,6 +59,7 @@ const getUserSinistre = async (req, res, next) => {
         }else {
             data.forEach(doc => {
                 const sinistre = new Sinistre(
+                    doc.id,
                     doc.data().Localisation==null?"":doc.data().Localisation,
                     doc.data().date_Sinistre==null?"":doc.data().date_Sinistre,
                     doc.data().Heure_Sinistre==null?"": doc.data().Heure_Sinistre,
@@ -81,10 +82,10 @@ const getUserSinistre = async (req, res, next) => {
                     doc.data().MarqueV==null?"": doc.data().MarqueV,
                     doc.data().Numero_immatriculationV==null?"": doc.data().Numero_immatriculationV,
                     doc.data().Pays_immatriculationV==null?"":doc.data().Pays_immatriculationV,
-                    doc.data().nomAS==null?"":doc.data().nomAS,
-                    doc.data().prenomAS==null?"":doc.data().prenomAS,
+                    doc.data().NomAS==null?"":doc.data().NomAS,
+                    doc.data().PrenomAS==null?"":doc.data().PrenomAS,
                     doc.data().AdresseAS==null?"":doc.data().AdresseAS,       
-                    doc.data().TéléphoneASS==null?"":doc.data().TéléphoneASS,
+                    doc.data().TéléphoneAS==null?"":doc.data().TéléphoneAS,
                     doc.data().Code_PostalAS==null?"":doc.data().Code_PostalAS, 
                     doc.data().EmailAS==null?"":doc.data().EmailAS,
                     doc.data().NomA==null?"":doc.data().NomA,
@@ -112,16 +113,14 @@ const getUserSinistre = async (req, res, next) => {
                     doc.data().fin_valide_permisC==null?"":doc.data().fin_valide_permisC,  
                     doc.data().Description==null?"":doc.data().Description,
                     doc.data().Détaille==null?"":doc.data().Détaille,
-
                     doc.data().PhotosA==null?"":doc.data().PhotosA,  
                     doc.data().CroquisA==null?"":doc.data().CroquisA,
                     doc.data().SignatureA==null?"":doc.data().SignatureA,
-
                     doc.data().MarqueB==null?"": doc.data().MarqueB,
                     doc.data().Numero_immatriculationB==null?"": doc.data().Numero_immatriculationB,
                     doc.data().Pays_immatriculationB==null?"":doc.data().Pays_immatriculationB,
-                    doc.data().nomASB==null?"":doc.data().nomASB,
-                    doc.data().prenomASB==null?"":doc.data().prenomASB,
+                    doc.data().NomASB==null?"":doc.data().NomASB,
+                    doc.data().PrenomASB==null?"":doc.data().PrenomASB,
                     doc.data().AdresseASB==null?"":doc.data().AdresseASB,       
                     doc.data().TéléphoneASSB==null?"":doc.data().TéléphoneASSB,
                     doc.data().Code_PostalASB==null?"":doc.data().Code_PostalASB, 
@@ -138,7 +137,7 @@ const getUserSinistre = async (req, res, next) => {
                     doc.data().telephoneAB==null?"":doc.data().telephoneAB,
                     doc.data().emailB==null?"":doc.data().emailB, 
                     doc.data().prise_enchargeB==null?"":doc.data().prise_enchargeB,   
-                    doc.data().CirconstanceCB==null?"":doc.data().CirconstanceB, 
+                    doc.data().CirconstanceCB==null?"":doc.data().CirconstanceCB, 
                     doc.data().NomCB==null?"":doc.data().NomCB,
                     doc.data().PrenomCB==null?"":doc.data().PrenomCB,
                     doc.data().date_naissanceCB==null?"":doc.data().date_naissanceCB, 
@@ -167,6 +166,24 @@ const getUserSinistre = async (req, res, next) => {
 }
 
 
+const get1sinistre = async (req, res, next) => {
+    try {
+        const user = req.params.uid;
+        const id =req.params.id;
+        const student = await firestore.collection('User').doc(user).collection('Sinistre').doc(id)
+        const data = await student.get();
+        if(!data.exists) {
+            res.status(404).send('Student with the given ID not found');
+        }else {
+            res.send(
+                data.data()==null?"":data.data()
+            
+            );
+        }
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
 
 const getAllusers = async (req, res, next) => {
     try {
@@ -201,5 +218,6 @@ module.exports = {
     getAllusers,
     addcompagnie,
     getUserSinistre,
+    get1sinistre,
   
    }

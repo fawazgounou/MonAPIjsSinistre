@@ -9,16 +9,13 @@ const firestore = firebase.firestore();
 const getAllSinistre = async (req, res, next) => {
     
     try {
-        const check=async (name)=>{
-            
-            const studentst = await firestore.collection('User').doc(name).collection('Sinistre');
-            const datat = await studentst.get();
-            return datat;
-        }
-        const students = await firestore.collection('User');
-     
-        const data = await students.get();
-      
+       
+        const id =req.params.id;
+        const name =req.params.name;
+            const studentst = await firestore.collection('User').doc(name).collection('Sinistre').doc(id);
+            const data = await studentst.get();
+          
+
         const studentsArray = [];
         const accident= [];
         
@@ -26,10 +23,10 @@ const getAllSinistre = async (req, res, next) => {
         if(data.empty) {
             res.status(404).send('No student record found');
         }else {
-            const totalS= [];
+            
             data.forEach(doc => {
-                doc.data().name==null?"":doc.data().name
-                const datat=check(doc.data().name)
+                doc.data().id==null?"":doc.data().id
+                const datat=check(doc.data().id)
                 console.log(datat); 
                 datat.forEach(docs => {
                     const sinistre = new Sinistre(
@@ -40,15 +37,15 @@ const getAllSinistre = async (req, res, next) => {
                         docs.data().blesse,
                         docs.data().degats,                     
                    );
-                   if (sinistre) {
-                    totalS.push(sinistre);
-                   } 
+                  
+                    studentsArray.push(sinistre);
+                  
                 });
                 studentsArray.push(totalS);
                 console.log(studentsArray) ; 
             });
             
-            res.send(totalS);
+            res.send(studentsArray);
 
             
             
