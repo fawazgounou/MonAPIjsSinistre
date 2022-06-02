@@ -1,10 +1,9 @@
 class Users {
-    constructor( name, mail, password,role ) {
-     
-            this.name = name;
-            this.mail = mail;
-            this.password = password;
-            this.role = role;
+    constructor( id,name, mail,role ) {
+                   this.id = id;
+                   this.name = name;
+                    this.mail = mail;
+                    this.role = role;
         }
 }
 

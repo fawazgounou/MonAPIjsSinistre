@@ -14,7 +14,7 @@ class Sinistre {
     nomB,
     prenomB,
     AdresseB,
-    TelephoneB,
+    telephoneB,
     ProfessionB,
     SituationB,
     CasqueB,
@@ -57,7 +57,7 @@ class Sinistre {
      SignatureA,
 
      MarqueB, Numero_immatriculationB, Pays_immatriculationB,
-    nomASB,
+     NomASB,
     PrenomASB,
    AdresseASB,
    TéléphoneASSB,
@@ -90,7 +90,7 @@ class Sinistre {
      DétailleCB,
      PhotosB,
      SignatureB,
-     CroquisA_B,
+     
      
 
 
@@ -111,7 +111,7 @@ class Sinistre {
             this.nomB =nomB;
             this.prenomB=prenomB;
             this.AdresseB=AdresseB;
-           this.TelephoneB  =TelephoneB;
+           this.telephoneB  =telephoneB;
            this.ProfessionB =ProfessionB;
            this.SituationB =SituationB;
            this.CasqueB =CasqueB;
@@ -193,7 +193,7 @@ class Sinistre {
            this.DétailleCB =DétailleCB;
            this.PhotosB = PhotosB;
            this.SignatureB =SignatureB;
-           this.CroquisA_B =CroquisA_B;
+          
 
          
          

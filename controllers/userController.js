@@ -1,9 +1,10 @@
 'use strict';
 
 const firebase = require('../db');
-const Users = require('../models/user').default;
 const firestore = firebase.firestore();
+const Users = require('../models/user');
 const Sinistre = require('../models/adminsinistre'); 
+
 
 
 const addUsers = async (req, res, next) => {
@@ -73,7 +74,7 @@ const getUserSinistre = async (req, res, next) => {
                     doc.data().nomB==null?"": doc.data().nomB,
                     doc.data().prenomB==null?"": doc.data().prenomB,
                     doc.data().AdresseB==null?"": doc.data().AdresseB,       
-                    doc.data().TelephoneB==null?"":doc.data().TelephoneB,
+                    doc.data().telephoneB==null?"":doc.data().telephoneB,
                     doc.data().ProfessionB==null?"":doc.data().ProfessionB, 
                     doc.data().SituationB==null?"":doc.data().SituationB,
                     doc.data().CasqueB==null?"":doc.data().CasqueB,  
@@ -152,7 +153,7 @@ const getUserSinistre = async (req, res, next) => {
                     doc.data().DétailleCB==null?"":doc.data().DétailleCB,
                     doc.data().PhotosB==null?"":doc.data().PhotosB,  
                     doc.data().SignatureB==null?"":doc.data().SignatureB,
-                    doc.data().CroquisA_B==null?"":doc.data().CroquisA_B,
+                    
                );
                
                 studentsArray.push(sinistre);
@@ -196,16 +197,27 @@ const getAllusers = async (req, res, next) => {
         }else {
             data.forEach(doc => {
                 const sinistre = new Users(
+                    doc.id,
                     doc.data().name==null?"":doc.data().name,
                     doc.data().mail==null?"":doc.data().mail,
-                    doc.data().password==null?"":doc.data().password,
                     doc.data().role==null?"":doc.data().role,
-                    
-                );
+                  );
                 studentsArray.push(sinistre);
             });
             res.send(studentsArray);
         }
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
+const updateRole = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = req.body;
+        const student =  await firestore.collection('User').doc(id);
+        await student.update(data);
+        res.send('Student record updated successfuly');        
     } catch (error) {
         res.status(400).send(error.message);
     }
@@ -216,6 +228,7 @@ module.exports = {
     addUsers,
     getuser,
     getAllusers,
+    updateRole,
     addcompagnie,
     getUserSinistre,
     get1sinistre,
