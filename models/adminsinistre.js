@@ -52,7 +52,11 @@ class Sinistre {
      fin_valide_permisC,
      Description,
      Détaille,
-     PhotosA,
+     AvantA,
+     ArriereA,
+     DroitA,
+     GaucheA,
+     HautA,
      CroquisA,
      SignatureA,
 
@@ -88,14 +92,13 @@ class Sinistre {
      fin_valide_permisCB,
      DescriptionCB,
      DétailleCB,
-     PhotosB,
+     AvantB,
+     ArriereB,
+     DroitB,
+     GaucheB,
+     HautB,
      SignatureB,
-     
-     
-
-
-
-
+          
      ) {
       this.id = id;
             this.Localisation = Localisation;
@@ -151,7 +154,11 @@ class Sinistre {
            this.fin_valide_permisC =fin_valide_permisC;
            this.Description = Description;
            this.Détaille =Détaille;
-           this.PhotosA = PhotosA;
+           this.AvantA = AvantA;
+           this.ArriereA = ArriereA;
+           this.DroitA = DroitA;
+           this.GaucheA = GaucheA;
+           this.HautA = HautA;
            this.CroquisA =CroquisA;
            this.SignatureA =SignatureA;
 
@@ -191,7 +198,11 @@ class Sinistre {
            this.fin_valide_permisCB =fin_valide_permisCB;
            this.DescriptionCB = DescriptionCB;
            this.DétailleCB =DétailleCB;
-           this.PhotosB = PhotosB;
+           this.AvantB = AvantB;
+           this.ArriereB = ArriereB;
+           this.DroitB = DroitB;
+           this.GaucheB = GaucheB;
+           this.HautB = HautB;
            this.SignatureB =SignatureB;
           
 

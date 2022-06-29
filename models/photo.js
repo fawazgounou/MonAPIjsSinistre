@@ -1,13 +1,10 @@
 class Photo {
-    constructor(id,
-        imageUrl,
-        name,
-       ) {
-            this.id = id; 
-            this.imageUrl =imageUrl;
-        this.name = name;
-        
-         
+    constructor(id,url, ) {
+            this.id = id;
+            this.url = url;
+           
+           
+           
     }
 }
 
