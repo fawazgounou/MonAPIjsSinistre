@@ -1,11 +1,13 @@
 const express = require('express');
-const {addUsers,
+const {
+    addUsers,
     getuser,
+    // updateUserEmail,
     getAllusers,
     updateRole,
     getUserSinistre,
     addcompagnie,
-    get1sinistre,
+    getdetailssinistre,
     recherche
  } = require('../controllers/userController');
 const router = express.Router();
@@ -13,13 +15,12 @@ const router = express.Router();
 router.post('/adduser', addUsers);
 router.post('/addcompagnie', addcompagnie);
 router.get('/getuser/:id', getuser);
+// router.put('/update/user/email/:id', updateUserEmail);
 router.get('/getusers', getAllusers);
 router.put('/updateR/:id', updateRole);
 router.get('/getsinistre/:id', getUserSinistre);
-router.get('/get1sinistre/:uid/:id', get1sinistre);
+router.get('/getdetailssinistre/:uid/:id', getdetailssinistre);
 router.get('/recherche/:id/:date', recherche);
-
-
 
 module.exports = {
     routes: router

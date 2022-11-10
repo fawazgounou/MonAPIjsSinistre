@@ -21,6 +21,6 @@
     "firebase": "^8.10.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.20"
   }
 }

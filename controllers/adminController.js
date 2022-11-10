@@ -12,8 +12,8 @@ const getAllSinistre = async (req, res, next) => {
        
         const id =req.params.id;
         const name =req.params.name;
-            const studentst = await firestore.collection('User').doc(name).collection('Sinistre').doc(id);
-            const data = await studentst.get();
+        const studentst = await firestore.collection('User').doc(name).collection('Sinistre').doc(id);
+        const data = await studentst.get();
           
 
         const studentsArray = [];
@@ -45,11 +45,7 @@ const getAllSinistre = async (req, res, next) => {
                 console.log(studentsArray) ; 
             });
             
-            res.send(studentsArray);
-
-            
-            
-                        
+            res.send(studentsArray); 
         }
     } catch (error) {
         res.status(400).send(error.message);
